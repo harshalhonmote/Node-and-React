@@ -1,13 +1,19 @@
 import express from "express";
 import mysql from 'mysql2';
 import atob from 'atob';
+import 'dotenv/config';
+
 
 const route = express.Router();
 const con = mysql.createConnection({
-    host: 'localhost',
-    user: 'sunbeam',
-    password: 'sunbeam',
-    database: 'mydb'
+   host: process.env.host ,
+   user: process.env.user ,
+   password: process.env.password ,
+   database: process.env.database 
+   //  host: 'localhost',
+   //  user: 'sunbeam',
+   //  password: 'sunbeam',
+   //  database: 'mydb'
 });
 //----------LogIn-------------------
 route.post('/login',(req,resp)=>{
